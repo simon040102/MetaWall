@@ -78,7 +78,7 @@ const CreatePost = () => {
           setUploadPhoto(false);
           setUploadPost(false);
         });
-    } catch (error) {}
+    } catch (error) {console.log(error)}
   };
   const updatePost = () => {
     axios
@@ -90,7 +90,7 @@ const CreatePost = () => {
         Swal.fire('張貼成功');
         navigate('/wall');
       })
-      .catch((err) => { setErr(err.response.data.message);});
+      .catch((err) => { console.log(err); setErr(err.response.data.message);});
   };
   useEffect(() => {
     uploadPhoto && updatePost();

@@ -2,13 +2,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Routes, Route, Link, Outlet } from 'react-router-dom';
 import { ReactComponent as Logo } from '../images/MetaWall_black.svg';
-
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-  const [profile,setProfile]=useState({})
-  const [member,setMember]=useState(false)
+  const [profile, setProfile] = useState({});
+  const [member, setMember] = useState(false);
+  let navigate = useNavigate();
   const Authorization = localStorage.getItem('MetaWall');
-  const getData=()=>{
+  const getData = () => {
     axios
       .get('https://rocky-bastion-75868.herokuapp.com/users/profile', {
         headers: { Authorization },
@@ -18,20 +19,23 @@ const Header = () => {
           name: res.data.user.name,
           photo: res.data.user.photo,
         });
-      }).catch(err=>{});
-  }
-  const handleClick=()=>{
-    setMember(!member)
-  }
-  
-  const handleLongOut=()=>{
-    localStorage.removeItem('MetaWall');
-  }
+      })
+      .catch((err) => {
+        localStorage.removeItem('MetaWall');
+         navigate('/');
+      });
+  };
+  const handleClick = () => {
+    setMember(!member);
+  };
 
- useEffect(() => {
-   getData();
-  
- }, []);
+  const handleLongOut = () => {
+    localStorage.removeItem('MetaWall');
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <div>
       <div className="h-16 flex  bg-white border-b-4 sticky top-0 z-50">
@@ -77,4 +81,4 @@ const Header = () => {
   );
 };
 
-export default Header
+export default Header;
