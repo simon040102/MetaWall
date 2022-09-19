@@ -54,7 +54,7 @@ const Login = (props) => {
     checkToken();
   },[])
   return (
-    <div className="m-auto flex justify-center md:w-4/6 h-536 py-14 w-11/12   border-4 bg-primary  border-black shadow-[-8px_8px_0px_0px_rgba(0,0,0,0.3)]">
+    <div className="m-auto flex justify-center md:w-4/6 w-11/12 h-536 py-14  border-4 bg-primary  border-black shadow-[-8px_8px_0px_0px_rgba(0,0,0,0.3)]">
       <HomeMeta className="mx-10 hidden md:block" />
       <div className="mx-10 w-96">
         <MetaWall className="mb-4 mx-auto" />
