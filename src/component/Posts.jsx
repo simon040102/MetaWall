@@ -145,7 +145,7 @@ const Posts = (props) => {
       <div className="mt-4 text-left">
         <p>{content}</p>
         {postImages !== '' && (
-          <img className="mt-4 border-2 rounded-md" src={postImages} alt="" />
+          <img className="mt-4 border-2 mx-auto rounded-md" src={postImages} alt="" />
         )}
         <button data-like={postId} className="mt-4" onClick={handleLike}>
           {checkLike ? (
