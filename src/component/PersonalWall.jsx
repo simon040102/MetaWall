@@ -35,7 +35,7 @@ const PersonalWall = () => {
       })
       .catch((err) => {});
   };
- 
+ console.log(post)
   const showPost = () => {
     return post.map((item, index) => {
       return (

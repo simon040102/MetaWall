@@ -37,7 +37,7 @@ const Posts = (props) => {
           comment={item.comment}
           userId={item.user._id}
           name={item.user.name}
-          time={item.createdAt}
+          time={item.user.createdAt}
           user={user}
         />
       );
@@ -81,7 +81,6 @@ const Posts = (props) => {
          });
          setWaitLoading(false)
     }).catch(err=>{
-        console.log(err)
     });
   }
   //按讚或取消讚
@@ -100,7 +99,7 @@ const Posts = (props) => {
           setCheckLike(true);
         })
         .catch((err) => {
-          console.log(err);
+  
         });
       return;
     }
@@ -115,7 +114,7 @@ const Posts = (props) => {
           setCheckLike(false);
         })
         .catch((err) => {
-          console.log(err);
+
         });
       return;
     }
@@ -124,7 +123,7 @@ const Posts = (props) => {
   useEffect(() => {
     checkLikeArray(likes);
   }, [likes]);
-//   console.log(user, userId);
+
   return (
     <div className="border-2 relative w-full p-6 mb-4 bg-white rounded-md border-black shadow-[0px_2px_0px_0px_rgba(0,0,0,1)]">
       <div>
