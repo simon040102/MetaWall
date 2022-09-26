@@ -57,6 +57,7 @@ const ModifyProfile = () => {
   };
   const update = async () => {
     setError(null);
+    console.log(imgData)
     if (imgData !== null) {
       let config = {
         method: 'post',
@@ -69,7 +70,6 @@ const ModifyProfile = () => {
 
       await axios(config)
         .then((res) => {
-          console.log(res.data.imgUrl);
           setProfile((preState) => {
             setPhoto(true);
             return {
@@ -83,6 +83,7 @@ const ModifyProfile = () => {
           console.log(err);
         });
     }
+     setPhoto(true);
   };
 
   const updateProfile = () => {
